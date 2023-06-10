@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {FiEye,FiEyeOff} from 'react-icons/fi'
-import useLogIn from '../../hooks/useLogIn'
+import useLogIn from '../hooks/useLogIn'
 
 
 const Login = () => {

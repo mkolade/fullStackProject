@@ -16,7 +16,7 @@
       },
       {
         "src": "/api/(.*)",
-        "dest": "backend/api/$1"
+        "dest": "https://backend-sooty-ten.vercel.app"
       },
       {
         "src": "/(.*)",

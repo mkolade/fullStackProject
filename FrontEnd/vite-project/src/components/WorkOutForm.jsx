@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useWorkoutsContext } from '../../hooks/useWorkoutsContext'
-import useAuthContext from '../../hooks/useAuthContext'
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
+import useAuthContext from '../hooks/useAuthContext'
 
 
 const WorkOutForm = () => {

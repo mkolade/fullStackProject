@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {FiEye,FiEyeOff} from 'react-icons/fi'
-import useSignUp from '../../hooks/useSignUp'
+import useSignUp from '../hooks/useSignUp'
 
 const SignUp = () => {
     const [email,setEmail] = useState('')

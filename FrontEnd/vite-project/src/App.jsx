@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Navbar from './components/Navbar'
-import useAuthContext from '../hooks/useAuthContext'
+import useAuthContext from './hooks/useAuthContext'
 
 function App() {
   const {user} = useAuthContext()

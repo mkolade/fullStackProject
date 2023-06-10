@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useWorkoutsContext } from '../../hooks/useWorkoutsContext'
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 //components
 import WorkOutDetails from '../components/workOutDetails'
 import WorkOutForm from '../components/WorkOutForm'
-import useAuthContext from '../../hooks/useAuthContext'
+import useAuthContext from '../hooks/useAuthContext'
 
 const Home = () => {
   const {workouts,dispatch} = useWorkoutsContext()
