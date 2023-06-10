@@ -17,8 +17,11 @@ const cors = require('cors')
 //create express app
 const app = express();
 
-//use cors middleware
-app.use(cors());
+//using cors middleware
+const allowedOrigins = ['http://localhost:5173', 'https://localhost:4173', 'https://frontend-chi-azure-50.vercel.app/'];
+app.use(cors({
+    origin:allowedOrigins,
+}));
 
 //middlewares
 app.use(express.json())
