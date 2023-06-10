@@ -16,9 +16,12 @@ const cors = require('cors')
 
 //create express app
 const app = express();
-
-// Using the cors middleware
-app.use(cors());
+// Enable CORS for requests from http://localhost:5173
+app.use(
+    cors({
+      origin: 'http://localhost:5173',
+    })
+  );
 
 //middlewares
 app.use(express.json())
