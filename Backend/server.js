@@ -10,8 +10,8 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const workoutRoutes = require('./routes/workoutRoutes');
-const userRoutes = require('./routes/userRoutes')
+const workoutRoutes = require('./api/routes/workoutRoutes');
+const userRoutes = require('./api/routes/userRoutes')
 const cors = require('cors')
 
 //create express app
