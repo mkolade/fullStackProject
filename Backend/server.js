@@ -13,14 +13,23 @@ const mongoose = require('mongoose');
 const workoutRoutes = require('./api/routes/workoutRoutes');
 const userRoutes = require('./api/routes/userRoutes')
 
+const cors = require('cors')
 
 //create express app
 const app = express();
 
 
+app.get('/', (req, res) => {
+    res.send('Server is up and running');
+  });
+  
+
 
 //middlewares
 app.use(express.json())
+
+
+app.use(cors());
 app.use((req,res,next)=>{
     console.log(req.method,req.path)
     next()

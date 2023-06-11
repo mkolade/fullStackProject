@@ -13,16 +13,20 @@ const Home = () => {
   const [isLoading,setIsLoading] = useState(false)
   const {user} = useAuthContext()
   useEffect(() =>{
+    console.log('User:', user.token)
     const fetchWorkouts = async () =>{
       
       try {
         setIsLoading(true)
+        
         const response = await fetch('https://backend-sooty-ten.vercel.app/api/workouts',{
           headers:{
             'Authorization':`Bearer ${user.token}`
           }
         });
+        console.log('Fetch response:', response);
         const json = await response.json();
+        console.log('Fetched workouts:', json);
         if (response.ok) {
           setIsLoading(false)
           dispatch({type:'SET_WORKOUTS',payload:json})
@@ -54,7 +58,7 @@ const Home = () => {
       {!isLoading && (
         <div className='workouts'>
          {error &&
-           <p>Something went wrong: {error.message}</p>
+           <p>Somethingso went wrong: {error.message}</p>
          }
           {workouts !== null && workouts !== undefined && workouts.length > 0 ? 
               (
