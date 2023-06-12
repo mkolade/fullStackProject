@@ -11,12 +11,13 @@ const WorkOutForm = () => {
     const [load,setLoad] = useState('')
     const [reps,setReps] = useState('')
     const [error,setError] = useState(null)
+    const [isPending,setIspending] = useState(false)
     const [emptyFields,setEmptyFields] = useState([])
 
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
-        
+        setIspending(true)
         if(!user){
             setError('You must be logged in')
             return
@@ -36,6 +37,7 @@ const WorkOutForm = () => {
         if(!response.ok){
             setError(json.error)
             setEmptyFields(json.emptyFields)
+            setIspending(false)
         }else{
             setTitle('')
             setLoad('')
@@ -44,6 +46,7 @@ const WorkOutForm = () => {
             setEmptyFields([])
             //console.log('new workout created',await json)
             dispatch({type:'CREATE_WORKOUT',payload:json})
+            setIspending(false)
         }
     }
   return (
@@ -74,7 +77,8 @@ const WorkOutForm = () => {
             onChange={(e) => setReps(e.target.value)}
         />  
         {error && <div className='error'>{error}</div>}
-        <button>Add Workout</button>    
+        {!isPending && <button>Add Workout</button>}
+        {isPending && <button disabled>Adding...</button>}
     </form>
   )
 }

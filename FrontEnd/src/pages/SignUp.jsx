@@ -37,7 +37,8 @@ const SignUp = () => {
                 {showPassword ?  <FiEyeOff/> : <FiEye/>}
             </button>
         </div>
-        <button disabled={isLoading}>Sign Up</button>
+        {!isLoading && <button type="submit" > Sign Up</button>}
+        {isLoading && <button type="submit" disabled> Creating...</button>}
         {error && 
             <div className='error'>
                 {error}

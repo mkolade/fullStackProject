@@ -29,10 +29,12 @@ const blogSchema = new Schema({
             }
             //using the validator dependency
                 if(!validator.isEmail(email)){
-                    throw Error('Email is not valid')
+                    throw Error('Email is not valid.must contain an "@" symbol')
                 }
+                
+
                 if(!validator.isStrongPassword(password)){
-                    throw Error('Password not strong enough')
+                    throw Error('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character')
                 }
         const exists = await  this.findOne({email})
         if(exists){
@@ -49,7 +51,11 @@ const blogSchema = new Schema({
     }
 //static login method
     blogSchema.statics.login = async function(email,password) {
-        if(!email || !password){
+        if(!email && password){
+            throw Error('Email can`t be blank')
+        }else if(email && !password){
+            throw Error('Password can`t be blank')
+        }else if(!email || !password){
             throw Error('All fields must be filled')
         }
 

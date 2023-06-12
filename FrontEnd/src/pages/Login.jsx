@@ -7,6 +7,7 @@ const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+    const [isPending,setIspending] = useState(false)
     
     const {logIn,error,isLoading} = useLogIn()
 
@@ -39,7 +40,8 @@ const Login = () => {
             </button>
         </div>
         
-        <button type="submit" disabled={isLoading}> Log in</button>
+        {!isLoading && <button type="submit" > Log in</button>}
+        {isLoading && <button type="submit" disabled> Fetching...</button>}
         {error && 
             <div className='error'>
                 {error}
