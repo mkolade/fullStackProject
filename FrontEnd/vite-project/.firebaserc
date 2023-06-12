@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "workouts2442",
+    "production": "workouts2442"
+  },
+  "targets": {},
+  "etags": {}
+}

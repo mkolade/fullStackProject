@@ -16,7 +16,7 @@ const WorkOutDetails = ({workout}) => {
     const response = await fetch('https://backend-sooty-ten.vercel.app/api/workouts/'+ workout._id,{
       method:'DELETE',
       headers:{
-        "Authorization":`Bearer ${user.token}`
+        "authorization":`Bearer ${user.token}`
       }
     })
     const json = await response.json()
